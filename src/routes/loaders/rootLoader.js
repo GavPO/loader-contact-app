@@ -1,4 +1,4 @@
-import { getContacts } from "../../contacts";
+import { getContacts } from "../contacts";
 
 export const rootLoader = async () => {
     const contacts = await getContacts();
