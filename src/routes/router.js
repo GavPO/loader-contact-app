@@ -4,6 +4,7 @@ import { rootLoader } from "./loaders/rootLoader";
 import { rootAction } from "./actions/rootAction";
 import { contactLoader } from "./loaders/contactLoader";
 import { editContactAction } from "./actions/editContactAction";
+import { deleteContactAction } from "./actions/deleteContactAction";
 import ErrorPage from "../components/ErrorPage";
 import Contact from "../components/Contact";
 import EditContact from "../components/EditContact";
@@ -26,6 +27,10 @@ export default createBrowserRouter([
         element: <EditContact />,
         loader: contactLoader,
         action: editContactAction,
+      },
+      {
+        path: "contacts/:contactId/destroy",
+        action: deleteContactAction,
       },
     ],
   },

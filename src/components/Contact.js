@@ -2,15 +2,13 @@ import { Form, useLoaderData } from "react-router-dom";
 
 export default function Contact() {
   const { contact } = useLoaderData();
-  
+
   return (
     <div id="contact">
       <div>
-        <img
-        alt="Contact Avatar"
-          key={contact.avatar}
-          src={contact.avatar || null}
-        />
+        {contact.avatar ? (
+          <img alt="Contact Avatar" key={contact.avatar} src={contact.avatar} />
+        ) : null}
       </div>
 
       <div>
@@ -28,7 +26,7 @@ export default function Contact() {
         {contact.twitter && (
           <p>
             <a
-            rel="noreferrer"
+              rel="noreferrer"
               target="_blank"
               href={`https://twitter.com/${contact.twitter}`}
             >
@@ -47,11 +45,7 @@ export default function Contact() {
             method="post"
             action="destroy"
             onSubmit={(event) => {
-              if (
-                !alert(
-                  "Please confirm you want to delete this record."
-                )
-              ) {
+              if (!alert("Please confirm you want to delete this record.")) {
                 event.preventDefault();
               }
             }}
@@ -72,11 +66,7 @@ function Favorite({ contact }) {
       <button
         name="favorite"
         value={favorite ? "false" : "true"}
-        aria-label={
-          favorite
-            ? "Remove from favorites"
-            : "Add to favorites"
-        }
+        aria-label={favorite ? "Remove from favorites" : "Add to favorites"}
       >
         {favorite ? "★" : "☆"}
       </button>
