@@ -41,15 +41,7 @@ export default function Contact() {
           <Form action="edit">
             <button type="submit">Edit</button>
           </Form>
-          <Form
-            method="post"
-            action="destroy"
-            onSubmit={(event) => {
-              if (!alert("Please confirm you want to delete this record.")) {
-                event.preventDefault();
-              }
-            }}
-          >
+          <Form method="post" action="destroy">
             <button type="submit">Delete</button>
           </Form>
         </div>

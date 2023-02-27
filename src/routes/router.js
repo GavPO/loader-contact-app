@@ -8,6 +8,7 @@ import { deleteContactAction } from "./actions/deleteContactAction";
 import ErrorPage from "../components/ErrorPage";
 import Contact from "../components/Contact";
 import EditContact from "../components/EditContact";
+import Index from "../components/Index";
 
 export default createBrowserRouter([
   {
@@ -17,6 +18,7 @@ export default createBrowserRouter([
     loader: rootLoader,
     action: rootAction,
     children: [
+      { index: true, element: <Index /> },
       {
         path: "contacts/:contactId",
         element: <Contact />,
